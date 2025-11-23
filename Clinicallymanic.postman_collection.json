@@ -1,0 +1,64 @@
+{
+  "info": {
+    "name": "Clinicallymanic API",
+    "_postman_id": "Clinicallymanic-api-collection-001",
+    "description": "Postman collection for Newsletter subscription module",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000/api/v1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Subscribe to Newsletter",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"test@example.com\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/newsletter/subscribe",
+          "host": ["{{base_url}}"],
+          "path": ["newsletter", "subscribe"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Subscribers",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/newsletter",
+          "host": ["{{base_url}}"],
+          "path": ["newsletter"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Subscriber",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/newsletter/:id",
+          "host": ["{{base_url}}"],
+          "path": ["newsletter", ":id"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
