@@ -7,10 +7,16 @@ const sendResponse = <T>(
     success: true;
     message: string;
     meta?: { total: number; page: number; limit: number };
-    data?: T;
+    data?: T | undefined;
   },
 ) => {
-  const responseBody: typeof jsonData = {
+  const responseBody: {
+    statusCode: number;
+    success: true;
+    message: string;
+    meta?: { total: number; page: number; limit: number };
+    data?: T | undefined;
+  } = {
     statusCode: jsonData.statusCode,
     success: jsonData.success,
     message: jsonData.message,
